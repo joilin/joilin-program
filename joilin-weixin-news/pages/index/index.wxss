@@ -1,0 +1,139 @@
+page{
+    width: 100%;
+    height: 100%;
+
+}
+/*width 750rpx, height 60rpx*/
+.title-wrapper{
+    width: 100%; 
+    background-color:#008ECC;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:gainsboro;
+    padding-bottom: 20rpx;
+}
+.sort-list{
+    width: 100%;
+    height: 60rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 30rpx;
+    line-height: 42rpx;
+}
+.sort-item {
+    width:100rpx;
+    display: flex;
+    flex-direction:column;
+    flex-shrink: 0;
+    align-items:center;
+    text-align:center;
+}
+.sort-name{
+    display:flex;
+    flex: 1;
+}
+.sort-name.on{
+    color: white; 
+    border-bottom: medium solid #FFF;
+}
+/*---------------------------------------------*/
+.news-swiper{
+    width: 100%;
+    height:100%;
+    overflow:hidden;
+    box-sizing:border-box;
+    margin-left:10rpx;
+    margin-top:10rpx;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+/*---------------------------------------------*/
+.hotNews-area{
+    position:relative;
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    height:380rpx;
+
+}
+.hotNews-text{
+    position: absolute;
+    bottom:0;
+    margin-left:20rpx;
+    margin-right:30rpx;
+    color:white; 
+    font-family:serif; 
+}
+.hotNews-Title{
+    font-size: 35rpx;
+    line-height: 49rpx;
+}
+.hotNews-other{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    align-items:center;
+    font-size: 25rpx;
+    line-height: 35rpx;
+    opacity: 0.65;
+}
+.hotNews-time {
+    margin-left:50rpx;
+}
+.hotNews-Pic{
+    position:absolute;
+    top:0;
+    left:0;
+    width: 97%;
+    height: 100%;
+    z-index: -1;
+}
+/*---------------------------------------------*/
+.newsOutLine-List{
+    position:relative;
+    display: flex;
+    flex-direction:column;
+}
+.news-item{
+    display:flex;
+    flex-direction:row;
+    justify-content:flex-start;
+    margin-top:30rpx;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.left{
+    width:540rpx;
+    height:182rpx;
+    margin-right:10rpx;
+}
+.right{
+    width:180rpx;
+    height:182rpx;
+}
+.news-title{
+    font-size:35rpx;
+    line-height:49rpx;
+}
+.news-other{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    align-items:center;
+    font-size: 25rpx;
+    line-height: 35rpx;
+    opacity: 0.65;
+}
+.news-time{
+    margin-left:50rpx;
+}
+.news-pic{
+    width:180rpx;
+    height:182rpx;
+
+}
+

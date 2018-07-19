@@ -1,0 +1,42 @@
+<!--pages/index/index.wxml-->
+<scroll-view  class="title-wrapper" scroll-x  scroll-with-animation="{{true}}">
+    <view class="sort-list" >
+        <view class="sort-item" wx:for="{{newsSort}}" >
+            <view class="sort-name {{currentTab==index ? 'on' : ''}}" data-current='{{index}}' bindtap="swichNav">{{item}}</view>
+        </view>
+    </view>
+</scroll-view>
+
+<swiper class="news-swiper" current="{{currentTab}}" indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange">
+        <swiper-item class="swiperItem" wx:for="{{outlineNewsList}}" wx:for-item="oneSortNewsList">
+            <scroll-view class="scrollView" scroll-y="true" style="height: 600px;">      
+                <view class="hotNews-area"   data-newsid='{{hotNewsList[currentTab].id}}' bindtap="onTapOutlineNews">
+                    <view class="hotNews-text" data-newsid='{{hotNewsList[currentTab].id}}'>
+                        <view class="hotNews-Title" data-newsid='{{hotNewsList[currentTab].id}}'>{{hotNewsList[currentTab].title}}</view>
+                        <view class="hotNews-other" data-newsid='{{hotNewsList[currentTab].id}}'>
+                            <view class="hotNews-source">{{hotNewsList[currentTab].source}}</view>
+                            <view class="hotNews-time">{{hotNewsList[currentTab].date}}</view>
+                        </view>
+                    </view>
+                    <image src='{{hotNewsList[currentTab].firstImage}}' mode="scaleToFill" class="hotNews-Pic"  ></image>
+                </view>
+                <view class="newsOutLine-List">
+                    <view class="news-item" wx:for="{{oneSortNewsList}}" wx:for-item="onetNews" data-newsid='{{onetNews.id}}' bindtap="onTapOutlineNews">
+                        <view class="left" data-newsid='{{onetNews.id}}'>
+                            <view class="news-title" data-newsid='{{onetNews.id}}'>{{onetNews.title}}</view>
+                            <view class="news-other" data-newsid='{{onetNews.id}}'>
+                                <view class="news-source" data-newsid='{{onetNews.id}}'>{{onetNews.source}}</view>
+                                <view class="news-time" data-newsid='{{onetNews.id}}'>{{onetNews.date}}</view>
+                            </view>
+                        </view>
+                        <view class="right" data-newsid='{{onetNews.id}}'>
+                            <image class= 'news-pic' src='{{onetNews.firstImage}}' mode="aspectFit" data-newsid='{{onetNews.id}}'> </image>
+                        </view>
+                     </view>
+                </view>
+            
+            </scroll-view>
+        </swiper-item>
+
+</swiper>
