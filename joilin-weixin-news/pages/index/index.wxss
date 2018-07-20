@@ -107,7 +107,7 @@ page{
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 .left{
-    width:540rpx;
+    /*width:540rpx;*/
     height:182rpx;
     margin-right:10rpx;
 }

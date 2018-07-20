@@ -1,11 +1,11 @@
 <!--pages/index/index.wxml-->
-<scroll-view  class="title-wrapper" scroll-x  scroll-with-animation="{{true}}">
+<view  class="title-wrapper">
     <view class="sort-list" >
         <view class="sort-item" wx:for="{{newsSort}}" >
             <view class="sort-name {{currentTab==index ? 'on' : ''}}" data-current='{{index}}' bindtap="swichNav">{{item}}</view>
         </view>
     </view>
-</scroll-view>
+</view>
 
 <swiper class="news-swiper" current="{{currentTab}}" indicator-dots="{{indicatorDots}}"
   autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange">
@@ -23,16 +23,18 @@
                 </view>
                 <view class="newsOutLine-List">
                     <view class="news-item" wx:for="{{oneSortNewsList}}" wx:for-item="onetNews" data-newsid='{{onetNews.id}}' bindtap="onTapOutlineNews">
-                        <view class="left" data-newsid='{{onetNews.id}}'>
+                        <view class="left" data-newsid='{{onetNews.id}}' style="width:{{onetNews.firstImage=='' ? 720 : 540}}rpx;">
                             <view class="news-title" data-newsid='{{onetNews.id}}'>{{onetNews.title}}</view>
                             <view class="news-other" data-newsid='{{onetNews.id}}'>
-                                <view class="news-source" data-newsid='{{onetNews.id}}'>{{onetNews.source}}</view>
+                                <view wx:if="{{onetNews.source != ''}}" class="news-source" data-newsid='{{onetNews.id}}'>{{onetNews.source}}</view>
+                                <view wx:if="{{onetNews.source == ''}}" class="news-source" data-newsid='{{onetNews.id}}'>来源不详</view>
                                 <view class="news-time" data-newsid='{{onetNews.id}}'>{{onetNews.date}}</view>
                             </view>
                         </view>
-                        <view class="right" data-newsid='{{onetNews.id}}'>
-                            <image class= 'news-pic' src='{{onetNews.firstImage}}' mode="aspectFit" data-newsid='{{onetNews.id}}'> </image>
+                        <view wx:if="{{onetNews.firstImage!=''}}" class="right" data-newsid='{{onetNews.id}}'>
+                            <image class= 'news-pic' src='{{onetNews.firstImage}}' mode="aspectFill" data-newsid='{{onetNews.id}}'> </image>
                         </view>
+                        <view wx:if="{{onetNews.firstImage==''}}" class="right" style="display:none"></view>
                      </view>
                 </view>
             

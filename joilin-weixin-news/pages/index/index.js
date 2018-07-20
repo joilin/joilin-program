@@ -36,6 +36,12 @@ Page({
         })  
     },
 
+    onPullDownRefresh() {
+        this.getOutlineNews(() => {
+            wx.stopPullDownRefresh()
+        })
+    },
+
     swichNav: function (e) {
         if (this.data.currentTab === e.target.dataset.current) {
             return false;
@@ -62,7 +68,7 @@ Page({
         })
     },
 
-    getOutlineNews(){
+    getOutlineNews(callback){
         let allHotNews = []
         let allNews = []
         for (let i = 0; i < this.data.newsSort.length;i++){
@@ -81,7 +87,7 @@ Page({
                     /*console.log("fail")*/
                 },
                 complete: () => {
-                    /*console.log("complete")*/
+                    callback && callback()
                 }
             })
         }
